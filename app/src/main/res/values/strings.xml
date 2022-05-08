@@ -1,0 +1,6 @@
+<resources>
+  <string name="app_name">guanaflix</string>
+  <string name="hello_world">Hola Mundo</string>
+  <string name="boton1">Boton1</string>
+  <string name="saludo">Bienvenido %1$s, tu contraseña es: %2$s</string>
+</resources>

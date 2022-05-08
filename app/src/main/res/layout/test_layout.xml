@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+
+  <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:backgroundTint="@color/acapulco"
+    android:text="@string/boton1"/>
+
+
+  <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:text="Boton2"/>
+
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hola Sandy"
+    android:layout_centerVertical="true"
+    />
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_centerHorizontal="true">
+
+
+    <TextView
+      android:id="@+id/txtHelloWorld"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Hola Mundo" />
+
+    <EditText
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:hint="User name"/>
+
+
+  </LinearLayout>
+
+  <include
+    layout="@layout/loading_layout"/>
+
+</RelativeLayout>
