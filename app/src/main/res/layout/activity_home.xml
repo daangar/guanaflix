@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
   <EditText
     style="@style/SearchText"
@@ -14,10 +14,21 @@
     app:layout_constraintTop_toTopOf="parent" />
 
   <View
+      android:id="@+id/separator"
     android:layout_width="match_parent"
     android:layout_height="1dp"
     android:background="@color/white"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/etSearch"/>
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rvShows"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/separator"
+      tools:itemCount="5"
+      tools:listitem="@layout/item_show"
+      />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
