@@ -3,9 +3,13 @@ package com.coders.guanaflix.presentation.ui.home
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.coders.guanaflix.data.repositories.FakeRepository
+import com.coders.guanaflix.data.repositories.Repository
 import com.coders.guanaflix.databinding.ActivityHomeBinding
+import kotlinx.coroutines.launch
 
 class HomeActivity: AppCompatActivity() {
 
@@ -13,43 +17,42 @@ class HomeActivity: AppCompatActivity() {
         ActivityHomeBinding.inflate(layoutInflater)
     }
 
+
+
+    private lateinit var repository: Repository
+
+    private val showsAdapter by lazy {
+        ShowsAdapter(
+            itemClicked = { name ->
+                showToast(name)
+            }
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupRecyclerView()
+        repository = FakeRepository()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            val data = repository
+                .getData()
+            showsAdapter.addShows(data)
+        }
     }
 
     private fun setupRecyclerView() {
         with (binding.rvShows) {
-//            layoutManager = LinearLayoutManager(
-//                this@HomeActivity,
-//                LinearLayoutManager.HORIZONTAL,
-//                false
-//            )
             layoutManager = GridLayoutManager(
                 this@HomeActivity,
                 3
             )
-            adapter = ShowsAdapter(
-                showNames = getShows(),
-                itemClicked = { name ->
-                    showToast(name)
-                }
-            )
+            adapter = showsAdapter
         }
-    }
-
-    private fun getShows(): List<String> {
-        return listOf(
-            "Under the dome",
-            "Stranger things",
-            "Obi wan kenobi",
-            "The boys",
-            "Ms Marvel",
-            "Pedro el escamoso",
-            "Betty la fea",
-            "Casa de papel K-drama"
-        )
     }
 
     private fun showToast(showName: String) {
