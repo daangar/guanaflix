@@ -6,12 +6,12 @@ data class Response(
 )
 
 data class Show(
-    val id: Long? = 0L,
-    val name: String? = "",
-    val image: Image? = Image()
+    val id: Long = 0L,
+    val name: String = "",
+    val image: Image = Image()
 )
 
 data class Image(
-    val medium: String? = "",
-    val original: String? = ""
+    val medium: String = "",
+    val original: String = ""
 )

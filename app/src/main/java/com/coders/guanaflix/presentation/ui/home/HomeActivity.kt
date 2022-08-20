@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.coders.guanaflix.data.repositories.FakeRepository
 import com.coders.guanaflix.data.repositories.Repository
+import com.coders.guanaflix.data.repositories.TVMazeRepository
 import com.coders.guanaflix.databinding.ActivityHomeBinding
 import kotlinx.coroutines.launch
 
@@ -33,7 +34,7 @@ class HomeActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupRecyclerView()
-        repository = FakeRepository()
+        repository = TVMazeRepository()
     }
 
     override fun onResume() {
